@@ -1,3 +1,4 @@
+
 import os
 import pickle
 import click
@@ -8,14 +9,11 @@ from hyperopt.pyll import scope
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 
-
-mlflow.set_tracking_uri("sqlite:///mlflow.db")  # Ensure this matches the URI where the server is running
-mlflow.set_experiment("random-forest-hyperopt")  # Creates the experiment if it doesn't exist
-
+mlflow.set_tracking_uri("sqlite:///mlflow.db")
+mlflow.set_experiment("random-forest-hyperopt")  
 def load_pickle(filename: str):
     with open(filename, "rb") as f_in:
         return pickle.load(f_in)
-
 
 @click.command()
 @click.option(
@@ -33,18 +31,19 @@ def run_optimization(data_path: str, num_trials: int):
     X_train, y_train = load_pickle(os.path.join(data_path, "train.pkl"))
     X_val, y_val = load_pickle(os.path.join(data_path, "val.pkl"))
 
+    trials = Trials() 
+
     def objective(params):
         with mlflow.start_run():
-
             rf = RandomForestRegressor(**params)
             rf.fit(X_train, y_train)
             y_pred = rf.predict(X_val)
             rmse = mean_squared_error(y_val, y_pred, squared=False)
             mlflow.log_metric("rmse", rmse)
-
             mlflow.log_params(params)
 
-            return {'loss': rmse, 'status': STATUS_OK}
+            
+            return {'loss': rmse, 'status': STATUS_OK, 'params': params}
 
     search_space = {
         'max_depth': scope.int(hp.quniform('max_depth', 1, 20, 1)),
@@ -54,16 +53,23 @@ def run_optimization(data_path: str, num_trials: int):
         'random_state': 42
     }
 
-    rstate = np.random.default_rng(42)  # for reproducible results
+    rstate = np.random.default_rng(42)  
     fmin(
         fn=objective,
         space=search_space,
         algo=tpe.suggest,
         max_evals=num_trials,
-        trials=Trials(),
+        trials=trials,
         rstate=rstate
     )
 
+   
+    best_trial = trials.best_trial
+    best_rmse = best_trial['result']['loss']
+    best_params = best_trial['result']['params']
+
+    print(f"Best validation RMSE: {best_rmse}")
+    print(f"Best hyperparameters: {best_params}")
 
 if __name__ == '__main__':
     run_optimization()

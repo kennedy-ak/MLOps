@@ -76,6 +76,7 @@ def run_data_prep(raw_data_path: str, dest_path: str, dataset: str = "green"):
     dump_pickle(dv, os.path.join(dest_path, "dv.pkl"))
     dump_pickle((X_train, y_train), os.path.join(dest_path, "train.pkl"))
     dump_pickle((X_val, y_val), os.path.join(dest_path, "val.pkl"))
+    
     dump_pickle((X_test, y_test), os.path.join(dest_path, "test.pkl"))
 
 

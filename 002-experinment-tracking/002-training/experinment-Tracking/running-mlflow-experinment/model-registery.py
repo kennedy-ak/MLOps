@@ -1,3 +1,4 @@
+
 import os
 import pickle
 import click
@@ -11,7 +12,7 @@ from sklearn.metrics import mean_squared_error
 HPO_EXPERIMENT_NAME = "random-forest-hyperopt"
 EXPERIMENT_NAME = "random-forest-best-models"
 RF_PARAMS = ['max_depth', 'n_estimators', 'min_samples_split', 'min_samples_leaf', 'random_state']
-
+global client = MlflowClient()
 mlflow.set_tracking_uri("sqlite:///new_mlflow.db")
 mlflow.set_experiment(EXPERIMENT_NAME)
 mlflow.sklearn.autolog()
@@ -41,6 +42,9 @@ def train_and_log_model(data_path, params):
         test_rmse = mean_squared_error(y_test, rf.predict(X_test), squared=False)
         mlflow.log_metric("test_rmse", test_rmse)
 
+        # Save the model to the current run
+        mlflow.sklearn.log_model(rf, "model")
+
 
 @click.command()
 @click.option(
@@ -56,9 +60,9 @@ def train_and_log_model(data_path, params):
 )
 def run_register_model(data_path: str, top_n: int):
 
-    client = MlflowClient()
+    
 
-    # Retrieve the top_n model runs and log the models
+  
     experiment = client.get_experiment_by_name(HPO_EXPERIMENT_NAME)
     runs = client.search_runs(
         experiment_ids=experiment.experiment_id,
@@ -66,16 +70,27 @@ def run_register_model(data_path: str, top_n: int):
         max_results=top_n,
         order_by=["metrics.rmse ASC"]
     )
+    
+    
     for run in runs:
         train_and_log_model(data_path=data_path, params=run.data.params)
 
-    # Select the model with the lowest test RMSE
+   
     experiment = client.get_experiment_by_name(EXPERIMENT_NAME)
-    # best_run = client.search_runs( ...  )[0]
+    best_run = client.search_runs(
+        experiment_ids=experiment.experiment_id,
+        run_view_type=ViewType.ACTIVE_ONLY,
+        max_results=1,
+        order_by=["metrics.test_rmse ASC"]
+    )[0]  
 
-    # Register the best model
-    # mlflow.register_model( ... )
+    model_uri = f"runs:/{best_run.info.run_id}/model"
+    model_name = "best_random_forest_model"
+    mlflow.register_model(model_uri=model_uri, name=model_name)
 
+    # Printing the  rmse
+    best_test_rmse = best_run.data.metrics["test_rmse"]
+    print(f"Best validation RMSE: {best_test_rmse}")
 
 if __name__ == '__main__':
     run_register_model()
