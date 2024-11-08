@@ -1,6 +1,0 @@
-artifact_location: file:///home/akogo/Desktop/MLOps/002-experinment-tracking/002-training/experinment-Tracking/running-mlflow-experinment/mlruns/868424139771396060
-creation_time: 1730979798574
-experiment_id: '868424139771396060'
-last_update_time: 1730979798574
-lifecycle_stage: active
-name: my-test-experinment
