@@ -18,6 +18,11 @@ lib/
 lib64/
 parts/
 sdist/
+data/
+data/
+running-mlflow-experinment/data/
+running-mlflow-experinment/env/
+
 var/
 wheels/
 share/python-wheels/
