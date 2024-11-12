@@ -65,22 +65,22 @@ def run():
     df_results['ride_id'] = df['ride_id']
 
 
-    output_file = 'results.parquet'
-    df_results.to_parquet(
-        output_file,
-        engine='pyarrow',
-        compression=None,
-        index=False
-    )
+#     output_file = './output/results.parquet'
+#     df_results.to_parquet(
+#         output_file,
+#         engine='pyarrow',
+#         compression=None,
+#         index=False
+#     )
 
 
-import os
+# import os
 
-file_size = os.path.getsize('results.parquet')
+# file_size = os.path.getsize('./output/results.parquet')
 
 
-file_size_kb = file_size / 1024  # Kilobytes
-file_size_mb = file_size / (1024 * 1024)  # Megabytes
+# file_size_kb = file_size / 1024  # Kilobytes
+# file_size_mb = file_size / (1024 * 1024)  # Megabytes
 
 # print(f"File size: {file_size_kb:.2f} KB")
 # print(f"File size: {file_size_mb:.2f} MB")
