@@ -1,0 +1,15 @@
+artifact_uri: file:///home/akogo/Desktop/MLOps/002-experinment-tracking/002-training/experinment-Tracking/running-mlflow-experinment/mlruns/0/0860c8a7ef6e4ec1a0ccbb5403a6980e/artifacts
+end_time: 1730995142776
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0860c8a7ef6e4ec1a0ccbb5403a6980e
+run_name: luminous-donkey-715
+run_uuid: 0860c8a7ef6e4ec1a0ccbb5403a6980e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1730995120568
+status: 3
+tags: []
+user_id: akogo
