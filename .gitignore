@@ -33,6 +33,7 @@ MANIFEST
 /002-training/experinment-Tracking/running-mlflow-experinment/mlflow.db
 /002-experinment-tracking/002-training/experinment-Tracking/running-mlflow-experinment/mlflow.db
 /002-experinment-tracking/002-training/experinment-Tracking/running-mlflow-experinment/new_mlflow.db
+/002-experinment-tracking/002-training/experinment-Tracking/mlflow.db
 *.pkl
 *.db
 
