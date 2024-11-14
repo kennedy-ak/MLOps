@@ -25,6 +25,10 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+/002-experinment-tracking/002-training/experinment-Tracking/mlruns/
+/002-experinment-tracking/002-training/experinment-Tracking/running-mlflow-experinment/mlruns/
+
+
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
