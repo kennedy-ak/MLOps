@@ -1,0 +1,11 @@
+projects:
+  - id: "01932a3e-7901-7637-b09c-0f9a36f85e67"
+    name: "NYC Taxi data quality report"
+    description: "This is to check the health of my model"
+    dashboard:
+      name: "NYC Taxi data quality report"
+      panels: []
+      tabs: []
+      tab_id_to_panel_ids: {}
+    date_from: "2024-11-14"
+    date_to: null  # Set a specific date if needed
