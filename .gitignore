@@ -23,6 +23,8 @@ data/
 running-mlflow-experinment/data/
 running-mlflow-experinment/env/
 *.bin
+*.db
+*.pkl
 var/
 wheels/
 share/python-wheels/
