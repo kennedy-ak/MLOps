@@ -22,7 +22,7 @@ data/
 data/
 running-mlflow-experinment/data/
 running-mlflow-experinment/env/
-
+*.bin
 var/
 wheels/
 share/python-wheels/
