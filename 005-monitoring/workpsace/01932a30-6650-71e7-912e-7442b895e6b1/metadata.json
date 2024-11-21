@@ -1,0 +1,15 @@
+{
+  "id": "01932a30-6650-71e7-912e-7442b895e6b1",
+  "name": "NYC Taxi data quality report",
+  "description": null,
+  "dashboard": {
+    "name": "NYC Taxi data quality report",
+    "panels": [],
+    "tabs": [],
+    "tab_id_to_panel_ids": {}
+  },
+  "team_id": null,
+  "date_from": null,
+  "date_to": null,
+  "created_at": "2024-11-14T10:20:35.280667"
+}
