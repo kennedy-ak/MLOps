@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/335180014525648063/3b13a9390c1e49209ee23a7c0507619e/artifacts
+end_time: 1733745513229
+entry_point_name: ''
+experiment_id: '335180014525648063'
+lifecycle_stage: active
+run_id: 3b13a9390c1e49209ee23a7c0507619e
+run_name: clumsy-jay-124
+run_uuid: 3b13a9390c1e49209ee23a7c0507619e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733745498792
+status: 3
+tags: []
+user_id: akogo
