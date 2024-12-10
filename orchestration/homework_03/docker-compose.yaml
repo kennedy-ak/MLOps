@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  mage:
+    image: mageai/mageai:latest
+    command: server --host 0.0.0.0 --port 6789
+    ports:
+      - "6789:6789"
+    volumes:
+      - ./mage_data:/app
+    networks:
+      - app-network
+    environment:
+      MAGE_PROJECT_PATH: /app
+
+  mlflow:
+    build:
+      context: .
+      dockerfile: mlflow.dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlflow_data:/home/mlflow_data/
+    networks:
+      - app-network
+
+networks:
+  app-network:
