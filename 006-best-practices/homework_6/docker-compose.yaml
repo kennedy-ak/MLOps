@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  s3:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+    env_file:
+      - .env
+    environment:
+      - SERVICES=s3
