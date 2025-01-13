@@ -196,3 +196,8 @@ mlartifacts/
 !orchestration/homework_03/metadata.yaml
 !orchestration/homework_03/transformers/
 !orchestration/homework_03/transformers/*
+
+001-intro/
+002-experinment-tracking/
+005-monitoring/
+006-best-practices/
