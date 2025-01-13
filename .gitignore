@@ -201,3 +201,6 @@ mlartifacts/
 002-experinment-tracking/
 005-monitoring/
 006-best-practices/
+004-deployment/
+.vscode/
+Pipfile
