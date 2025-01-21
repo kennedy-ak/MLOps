@@ -34,17 +34,11 @@ MANIFEST
 /002-experinment-tracking/002-training/experinment-Tracking/model-registery.ipynb 
 
 /002-experinment-tracking/002-training/experinment-Tracking/models
-/002-training/experinment-Tracking/running-mlflow-experinment/mlflow.db
-/002-experinment-tracking/002-training/experinment-Tracking/running-mlflow-experinment/mlflow.db
-/002-experinment-tracking/002-training/experinment-Tracking/running-mlflow-experinment/new_mlflow.db
-/002-experinment-tracking/002-training/experinment-Tracking/mlflow.db
+
 *.pkl
 *.db
 
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
 
