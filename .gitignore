@@ -193,7 +193,7 @@ mlartifacts/
 !orchestration/homework_03/data_exporters/*
 !orchestration/homework_03/data_loaders/
 !orchestration/homework_03/data_loaders/*
-!orchestration/homework_03/metadata.yaml
+
 !orchestration/homework_03/transformers/
 !orchestration/homework_03/transformers/*
 
@@ -204,3 +204,5 @@ mlartifacts/
 004-deployment/
 .vscode/
 Pipfile
+
+orchestration/homework_03/metadata.yaml
